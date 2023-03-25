@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music-Hub</title>
+       <!-- font awesome cdn link  -->
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="logo.jpg">
+</head>
+
+<body>
+
+
+    <div class="playlist-body">
+        <header>    
+            <div class="fa fa-bars" onclick="addSidebar()"></div>
+            <div class="playlist-body-text">Recent Plays</div>
+            <div class="fa fa-search" id="play-search"></div>
+        </header>
+
+        <div class="playlist-main">
+<div class="refine-box">
+    <div class="refine">Refine: </div>
+    <div class="date-modified">Date modified</div>
+</div>
+
+<div class="new-playlist">
+    <div class="fa fa-plus"></div>
+    <div class="new-playlist-text">New playlist</div>
+</div>
+
+<div class="playlist-find-nothing">
+    <div class="fa fa-expand"></div>
+    <div class="playlist-find-nothing-body">
+        <div class="playlist-find-nothing-text1">No finding everything?</div>
+        <div class="playlist-find-music">Show us where to look for music</div>
+    
+    </div>
+    <div class="fa fa-times"></div>
+</div>
+<div class="playlist-add-list">
+    Nothing to show here. Try a different filter
+</div>
+        </div>
+    </div>
+<div class="recent-plays" id="recent-play">
+    <header>
+        <div class="fa fa-bars" onclick="addSidebar()"></div>
+        <div class="recent-play-text">Recent Plays</div>
+        <div class="fa fa-search"></div>
+    </header>
+    <div class="recent-main">
+        <div class="shuffle">
+            <div class="fa fa-random"></div>
+            <div class="shuffle-text">Shuffle all music</div>
+        </div>
+        <div class="recent-plays-area">
+
+
+        </div>
+    </div>
+</div>
+  <div class="sidebar">
+    <div class="fa fa-bars" id="sidebar-bars" onclick="removeSidebar()"></div>
+    <nav>
+        <ul>
+         <li class="sidebar-active"><a href="#my-music" onclick="displayMainBody()"><div class="fa fa-music" ><span>My music</span></div></a></li>
+            <li><a href="#recent-play" onclick="displayRecentBody()"><div class="fa fa-clock"><span>Recent plays</span></div></a></li>
+            <li><a href="#playlists" onclick="displayPlaylistBody()"><div class="fa fa-music"><span>Playlists</span></div></a></li>
+            <li><a href="#now-playing"><div class="fa fa-music"><span>Now playing</span></div></a></li>
+            <div class="bottom">
+            <li><a href="can't signin"><div class="fa fa-info"><span>Can't sign in</span></div> <div class="fa fa-cog"></div></a></li>
+            <li><a href="https://spotify.com"><div class="fa fa-music"><span  style="font-size: 14px;">Stream millions of songs free</span></div></a></li>
+            </div>
+        </ul>
+    </nav>
+  </div>
+    <header class="header-header">
+        <div class="fa fa-bars" onclick="addSidebar()"></div>
+        <div class="header-title">My music</div>
+        <input type="search" name="search" id="search">
+        <div class="fa fa-search" id="search-button" onclick="displaySearchBar()"></div>
+
+    </header>
+
+    <main class="main"  id="my-music">
+<header>
+    <div class="song-text"> Songs</div>
+    <div class="line"></div>
+    <div class="artists-text">Artists</div>
+    <div class="albums-text" onclick="displayRecentBody()">Albums</div>
+</header>
+<div class="sub-header">
+    <div class="refine">
+        <div class="refine-text">Refine:</div>
+        <div class="date-added">Date added,</div>
+        <div class="genres">all genres</div>
+    </div>
+    <div class="shuffle">
+        <div class="fa fa-random"></div>
+        <div class="shuffle-text">Shuffle all (12)</div>
+    </div>
+    <div class="find-nothing">
+        <div class="fa fa-expand"></div>
+        <div class="find-nothing-body">
+            <div class="find-nothing-text1">No finding everything?</div>
+            <div class="find-music">Show us where to look for music</div>
+
+        </div>
+        <div class="fa fa-times"></div>
+    </div>
+</div>
+<div class="main-body">
+ 
+
+    </main>
+
+    <footer>
+        <div class="a">
+        <div class="master-play-text">
+            <div class="song-name">Gentility Sped</div>
+          <marquee><div class="song-artistss" style="color: gray;">Melvitto</div>
+          </marquee>
+        </div>
+
+        <div class="playback-icons">
+            <div class="fa fa-step-backward" id="back"></div>
+            <div class="fa fa-play" id="master-play"></div>
+            <div class="fa fa-step-forward" id="next"></div>
+        </div>
+
+        <div class="fa fa-ellipsis-v"></div>
+        </div>
+        <div class="input-range">
+            <div class="time-going">0:00</div>
+            <input type="range" name="song" id="song-input">
+            <div class="time-remaining">0:00</div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
