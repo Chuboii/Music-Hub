@@ -1,0 +1,715 @@
+:root{
+    --primary-color:black;
+    --secondary-color:rgb(24, 23, 23);
+    --text-color:aliceblue;
+    --selected:purple;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    transition: all .6s;
+    
+}
+
+html{
+    font-size: 16px;
+}
+
+.fa-spinner{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%, -50%);
+color:purple;
+font-size:60px;
+z-index:1000;
+}
+
+.loading-bg{
+
+width:100%;
+height:100vh;
+position:fixed;
+background:black;
+top:0;
+left:0;
+z-index:800;
+}
+body{
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.selected-song{
+    transition-duration: .3s;
+    background-color: purple;
+}
+
+
+.sidebar{
+    position: fixed;
+    z-index: 50;
+    background-color: var(--secondary-color);
+    filter: brightness(1.5);
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: none;
+    bottom: 0;
+    width: 250px;
+    
+}
+.sidebar nav{
+    margin-top: 1rem;
+
+
+}
+.sidebar nav ul {
+ 
+}
+.sidebar nav ul li{
+    list-style-type: none;
+  font-size: 3px;
+
+
+}
+.sidebar nav ul .sidebar-active{
+    border-left: 7px solid var(--selected);
+
+
+}
+.sidebar nav ul li a{
+
+    display: block;
+    padding: 1.5rem 1rem;
+    
+   
+
+    
+    
+}
+.sidebar nav ul li a:hover{
+    background-color: rgb(73, 72, 72);
+}
+
+.sidebar nav ul li a .fa{
+    font-size: 17px;
+    color: aliceblue;
+    font-weight: 600;
+}
+
+
+.sidebar nav ul li a span{
+    margin-left: 1rem;
+    font-size: 15px;
+    color: aliceblue;
+    font-weight: 100;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.sidebar .fa-bars{
+    margin-left: 1rem;
+    font-size: 20px;
+    z-index: 1000;
+    margin-top: 1rem;
+}
+
+.bottom{
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid gray;
+    padding-bottom: 1rem;
+}
+
+.bottom li a .fa-cog{
+    position: absolute;
+    right: 0;
+    margin-right: 1rem;
+}
+
+
+
+.header-header{
+    width: 100%;
+    height: 40px;
+    background-color: var(--secondary-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+   padding-top: 1rem;
+   z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+   
+}
+
+.header-header #search{
+    width: 85%;
+    height: 35px;
+   position: absolute;
+   right: 5px;
+   bottom: .78rem;
+   border-radius: 5px;
+   border: none;
+   outline: none;
+   padding-left: .4rem;
+display: none;
+}
+.active{
+    display: block;
+}
+.header-header .header-title{
+    position: absolute;
+    left: 3rem;
+    font-size: 17px;
+}
+
+.header-header .fa-bars{
+    margin-left: 1rem;
+    font-size: 19px;
+    z-index: 1000;
+}
+
+.header-header .fa-search{
+    margin-right: 1rem;
+    font-size: 19px;
+    z-index: 10;
+    
+}
+
+.albums-text:hover{
+    color: purple;
+}
+.artists-text:hover{
+    color: purple;
+}
+main{
+
+    margin: 0 1rem;
+    margin-top: 5rem;
+   
+    margin-bottom: 8rem;
+}
+
+main header{
+    width: 100%;
+    display: flex;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 8px;
+     margin-bottom: 1.5rem;
+     position: relative;
+}
+
+main header div{
+    margin-right: 2rem;
+    font-size: 20px;
+
+}
+
+
+main header .line{
+    width: 50px;
+    height: 3px;
+    background-color: var(--selected);
+    position: absolute;
+    bottom: 0;
+}
+
+main header div:nth-of-type(1){
+    color: var(--text-color);
+}
+
+main header .artists-text{
+    color: gray;
+}
+
+main header .albums-text{
+    color: gray;
+}
+
+
+main .sub-header .refine{
+    display: flex;
+    margin-bottom: 1.5rem;
+
+}
+
+
+main .sub-header .refine div{
+    margin-right: .5rem;
+}
+
+
+main .sub-header .refine div:nth-of-type(2){
+    color: violet;
+}
+
+
+main .sub-header .refine div:nth-of-type(3){
+    color: violet;
+}
+
+
+main .sub-header .shuffle{
+    display: flex;
+
+    margin-bottom: 1.5rem;
+}
+main .sub-header .shuffle div{
+    margin-right: .7rem;
+}
+
+main .sub-header .find-nothing{
+display: flex;
+position: relative;
+border-top: 2px solid var(--secondary-color);
+padding: 1.6rem 0;
+border-bottom: 2px solid var(--secondary-color);
+
+}
+
+main .sub-header .find-nothing div{
+margin-right: .8rem;    
+
+}
+
+
+main .sub-header .find-nothing .fa-times{
+    position: absolute;
+    right: 0;
+}
+
+main .sub-header .find-nothing .find-nothing-body div:nth-of-type(2){
+  color: violet;
+  margin-top: .5rem;
+}
+
+main .main-body .song-body{
+    display: flex;
+    position: relative;
+    padding: 1rem 0;
+    border-radius: 5px;
+    padding-left: .5rem;
+
+    margin-bottom: .5rem;
+
+}
+
+.song-body:hover{
+    padding: 1rem 0;
+    border-radius: 5px;
+    padding-left: .5rem;
+
+    background-color: purple;
+}
+
+.song-active{
+    padding: 1rem 0;
+    border-radius: 5px;
+    padding-left: .5rem;
+
+    background-color: var(--selected);
+ 
+}
+main .main-body .song-time{
+    position: absolute;
+    right: 15px;
+}
+.images{
+    width: 30px;
+    height: 30px;
+    margin-right: 1rem;
+
+}
+
+main .main-body .song-body img{
+    margin-right: 1rem;
+}
+
+main .main-body .song-body .song-name{
+    margin-bottom: .3rem;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    height: 75px;
+    z-index:7;
+    right:0;
+    left:0;
+   
+}
+
+footer .input-range{
+  
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+/*decorate input later*/
+
+footer .input-range input{
+  -webkit-appearance:none;
+    width: 100%;
+    margin: 0 1rem;
+    border-radius: 10px;
+    height: 2px;
+    
+}
+
+footer .input-range input::-webkit-slider-thumb{
+    
+    -webkit-appearance:none;
+    width: 25px;
+    height: 25px;
+    background-color: #f53192;
+    border: 8px solid white;
+    border-radius: 50%;
+
+}
+
+
+footer .input-range div:nth-of-type(2){
+    margin-right: 4rem;
+}
+
+footer .a{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+footer .a .master-play-text{
+    font-size: 18px;
+width:150px;
+}
+
+footer .a .master-play-text div:nth-of-type(1){
+  font-weight: 100;
+  color: aliceblue;
+  margin-bottom:.5rem;
+  
+  filter: brightness(1);
+}
+
+footer .a .master-play-text .song-artistss{
+  width:150px;
+  
+}
+
+
+footer .a .playback-icons{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+
+footer .a .playback-icons .fa{
+    font-size: 20px;
+    
+  
+
+    
+}
+
+footer .a .playback-icons .fa:hover{
+    transform: scale(1.2);
+}
+footer .a .playback-icons .fa-play{
+   border: 1px solid rgb(107, 106, 106);
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 25px;
+}
+
+footer .a .playback-icons .fa-pause{
+
+   border: 1px solid rgb(107, 106, 106);
+
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 25px;
+}
+
+
+footer .a .playback-icons .fa-play:hover{
+    width: 51px;
+    height: 51px;
+    border-radius: 50%;
+
+    background-color: rgb(77, 78, 78);
+}
+footer .a .playback-icons .fa-pause:hover{
+
+    width: 51px;
+
+    height: 51px;
+    border-radius: 50%;
+
+    background-color: rgb(77, 78, 78);
+}
+
+footer .a .fa-ellipsis-v{
+    margin-right: 1.5rem;
+    margin-top: .7rem;
+    font-size: 20px;
+}
+
+footer .a .fa-ellipsis-v:hover{
+  transform: scale(1.1);
+}
+
+
+
+
+.recent-plays{
+    margin: 1rem;
+    display: none;
+    margin-top: 5rem;
+    width: 100%;
+    
+}
+
+.recent-plays header{
+        width: 100%;
+        height: 40px;
+        background-color: var(--secondary-color);
+        position: fixed;
+        top: 0;
+        left: 0;
+       padding-top: 1rem;
+       z-index: 10;
+
+       margin: 0 1rem;
+        display: flex;
+  
+        text-transform: uppercase;
+    
+}
+
+.recent-plays header div:nth-of-type(2){
+    margin-left: 1.5rem;
+}
+.recent-plays header .fa-search{
+    position: fixed;
+    font-size: 18px;
+    right: 10px;
+}
+
+.recent-plays .recent-box{
+    width: 170px;
+    height: 200px;
+    margin-right: 1.5rem;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.recent-plays .recent-box .fa-play{
+    position: absolute;
+    top: 30%;
+    left: 56%;
+    
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    display:flex;
+
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(128, 128, 128, 0.929);
+}
+
+.recent-plays .recent-box:hover .fa-play{
+    opacity: 1;
+}
+.recent-plays .recent-box .fa-plus{
+    position: absolute;
+    top: 30%;
+    left: 23%;
+    opacity: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color:  rgba(128, 128, 128, 0.929);
+}
+.recent-plays .recent-box:hover .fa-plus{
+    opacity: 1;
+}
+
+.recent-plays .recent-box .fa-pause{
+    position: absolute;
+    top: 30%;
+    left:56%;
+    opacity: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color:  rgba(128, 128, 128, 0.929);
+}
+.recent-plays .recent-box:hover .fa-pause{
+    opacity: 1;
+}
+.recent-plays-area{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 7rem;
+
+
+
+}
+
+.recent-plays img{
+width: 160px;
+height: 160px;
+}
+
+.recent-plays .shuffle{
+display: flex;
+margin-bottom: 1rem;
+
+}
+.recent-plays .shuffle div:nth-of-type(2){
+    margin-left: .7rem;
+}
+
+.playlist-body{
+    margin: 1rem;
+    display: none;
+}
+
+.playlist-body header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--secondary-color);
+display: flex;
+align-items: center;
+height: 50px;
+
+}
+
+.playlist-body header #play-search{
+    position: absolute;
+    right: 15px;
+}
+
+.playlist-body header div:nth-of-type(2){
+    margin-left: 1rem;
+}
+
+.playlist-body header .fa-bars{
+    margin-left: 1rem;
+    font-size: 19px;
+    z-index: 1000;
+}
+
+.playlist-body .playlist-main{
+    margin-top: 4rem;
+}
+
+.playlist-body .playlist-main .refine-box{
+    display: flex;
+    margin-bottom: 1.5rem;
+
+}
+
+.playlist-body .playlist-main .refine-box div:nth-of-type(2){
+    margin-left: 1rem;
+    color: var(--selected);
+}
+
+
+.playlist-body .playlist-main .new-playlist{
+    display: flex;
+    padding-bottom: 1.7rem;
+    border-bottom: 2px solid var(--secondary-color);
+margin-bottom: 1rem;
+}
+
+.playlist-body .playlist-main .new-playlist div:nth-of-type(2){
+    margin-left: 1rem;
+}
+
+
+.playlist-body .playlist-main .playlist-find-nothing{
+    padding-bottom:1rem;
+    width: 100%;
+    font-size: 15px;
+    display: flex;
+  align-items: center;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+
+.playlist-body .playlist-main .playlist-find-nothing .fa-times{
+position: absolute;
+right: 15px;
+font-size: 18px;
+}
+
+
+
+.playlist-body .playlist-main .playlist-find-nothing .playlist-find-nothing-body{
+   color: plum;
+   margin-left: 1rem;
+  
+
+}
+
+.playlist-body .playlist-main .playlist-find-nothing .playlist-find-nothing-body:nth-of-type(2){
+  color: pli;
+}
+.playlist-add-list{
+    margin-top: 2rem;
+    font-size: 22px;
+}
+
+
+
+
+
+
+
+
+
+@media (min-width:0) and (max-width:400px){
+    .recent-plays-area{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        flex-wrap: wrap;
+      
+      }
+}
