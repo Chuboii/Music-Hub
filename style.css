@@ -20,8 +20,8 @@ html{
 .fa-spinner{
 position:absolute;
 top:50%;
-left:35%;
-transform:translate(-50%, -50%);
+left:45%;
+transform:translate(-45%, -50%);
 color:purple;
 font-size:60px;
 z-index:1000;
